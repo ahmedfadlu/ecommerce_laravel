@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Admin;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+// use App\Models\Distributor;
 
 class DatabaseSeeder extends Seeder
 {
@@ -31,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123456789'),
         ]);*/
 
-        Skripsi::create([
+        /*Skripsi::create([
             'judul' => 'Pengembangbiakan Lele Air Tawar Menggunakan Makanan dari Kotoran Manusia',
             'nama' => 'Ahmed Fadlu',
             'nim' => '6304',
@@ -39,6 +40,14 @@ class DatabaseSeeder extends Seeder
             'dosen_pembimbing_1' => 'Pak Fajri',
             'dosen_pembimbing_2' => 'Buk Elvi',
 
-        ]);
+        ]);*/
+
+        // Distributor::create([
+        //     'name_distributor' => 'Ahmed',
+        //     'provinsi' => 'Riau',
+        //     'kota' =>'Bengkalis',
+        //     'kontak' => '081363898382',
+        //     'email' => 'fadlu@gmail.com',
+        // ]);
     }
 }

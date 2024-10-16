@@ -18,6 +18,7 @@ Route::get('/service', function () {
 Route::get('/',[ListController::class,'index']);
 */
 
+use App\Http\Controllers\Admin\DistributorController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
@@ -32,8 +33,8 @@ Route::group(['middleware' => 'guest'], function () {
 
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/post-register', [AuthController::class, 'post_register'])->name('post.register');
-
     Route::post('/post-login', [AuthController::class, 'login']);
+
 })->middleware('guest');
 
 // Admin Route
@@ -46,6 +47,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/product/delete/{id}', [ProductController::class, 'delete'])->name('product.delete');
 
+    Route::get('/distributor',[DistributorController::class, 'index'])->name('admin.distributor');
+    Route::get('/distributor/create', [DistributorController::class, 'create'])->name('distributor.create');
+    Route::post('/distributor/store', [DistributorController::class, 'store'])->name('distributor.store');
+    Route::get('/distributor/edit/{id}', [DistributorController::class, 'edit'])->name('distributor.edit');
+    Route::post('/distributor/update/{id}', [DistributorController::class, 'update'])->name('distributor.update');
+    Route::delete('/distributor/delete/{id}', [DistributorController::class, 'delete'])->name('distributor.delete');
     // Product Route
     Route::get('/product', [ProductController::class, 'index'])->name('admin.product');
 
